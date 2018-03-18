@@ -11,9 +11,9 @@
 #define DEG2RAD(a)    (M_PI / 180 * (a))
 
 /* Dimenzije prostorije */
-#define xRange (50.0f)
-#define yRange (50.0f)
-#define zRange (50.0f)
+#define xRange (150.0f)
+#define yRange (150.0f)
+#define zRange (150.0f)
 
 /* Pokazivaci na prozore */
 extern GLFWwindow* mainWindow;
