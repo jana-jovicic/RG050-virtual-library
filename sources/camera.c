@@ -43,11 +43,30 @@ void updateCamera()
             Kretanje kamere sam napravila na osnovu koda sa sledeceg linka:
             http://www.lighthouse3d.com/tutorials/glut-tutorial/keyboard-example-moving-around-the-world/
         */
-	gCameraPosition[0] += sin(DEG2RAD(gCameraYaw)) * gMoveForward;
-	gCameraPosition[2] -= cos(DEG2RAD(gCameraYaw)) * gMoveForward;
+        
+        // desno
+        if (gCameraPosition[0] > xRange - 5)
+            gCameraPosition[0] = xRange - 5;
+        else
+            gCameraPosition[0] += sin(DEG2RAD(gCameraYaw)) * (gMoveForward * 2);
+       
+        // pravo
+        if (gCameraPosition[2] < -zRange + 5)
+            gCameraPosition[2] = -zRange + 5;
+        else
+            gCameraPosition[2] -= cos(DEG2RAD(gCameraYaw)) * (gMoveForward * 2);
 
-	gCameraPosition[0] += sin(DEG2RAD(gCameraYaw + 90)) * (gMoveRightward * 2);
-	gCameraPosition[2] += -cos(DEG2RAD(gCameraYaw + 90)) * (gMoveRightward * 2);
+        // levo
+        if (gCameraPosition[0] < -xRange + 5)
+            gCameraPosition[0] = -xRange + 5;
+        else
+            gCameraPosition[0] += sin(DEG2RAD(gCameraYaw + 90)) * (gMoveRightward * 2);
+        
+        // nazad
+        if (gCameraPosition[2] > zRange - 5)
+            gCameraPosition[2] = zRange - 5;
+        else
+            gCameraPosition[2] += -cos(DEG2RAD(gCameraYaw + 90)) * (gMoveRightward * 2);
 
 	gCameraPosition[1] += gMoveUpward;
 
