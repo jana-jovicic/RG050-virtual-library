@@ -4,11 +4,12 @@ CFLAGS  = -g -Wall -I/usr/X11R6/include -I/usr/pkg/include -I/usr/include/FTGL -
 LDFLAGS = -L/usr/X11R6/lib -L/usr/pkg/lib
 LDLIBS  = -lglfw -lglut -lGLU -lGL -lm -lftgl
 
-$(PROGRAM): main.o camera.o keyboard.o room.o
+$(PROGRAM): main.o camera.o keyboard.o room.o texture.o image.o
 	$(CC) $(LDFLAGS) -o $(PROGRAM) $^ $(LDLIBS)
 	
 main.o: sources/main.c
 	$(CC) $(CFLAGS) -c sources/main.c $(LDLIBS)
+	
 
 room.o: sources/room.c headers/room.h
 	$(CC) $(CFLAGS) -c sources/room.c $(LDLIBS)
@@ -18,6 +19,12 @@ keyboard.o: sources/keyboard.c headers/keyboard.h headers/camera.h
 
 camera.o: sources/camera.c headers/camera.h
 	$(CC) $(CFLAGS) -c sources/camera.c $(LDLIBS)
+	
+texture.o: sources/texture.c headers/texture.h
+	$(CC) $(CFLAGS) -c sources/texture.c $(LDLIBS)
+
+image.o: sources/image.c headers/image.h
+	$(CC) $(CFLAGS) -c sources/image.c $(LDLIBS)
 
 .PHONY: clean dist
 
