@@ -10,6 +10,7 @@
 #include "../headers/global_variables.h"
 #include "../headers/keyboard.h"
 #include "../headers/room.h"
+#include "../headers/texture.h"
 
 /*---------------------------- Globalne promenljive ----------------------------*/
 
@@ -148,6 +149,8 @@ void init()
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+        
+        loadTextures();
 
 	/* Postavljaju se svojstva materijala */
 	glMaterialfv(GL_FRONT, GL_AMBIENT, gAmbientMaterial);
@@ -278,17 +281,17 @@ static void draw_debug_coordsys()
     glBegin(GL_LINES);
     // x - crvena
     glColor3f (1, 0, 0);
-    glVertex3f(50, 0, 0);
+    glVertex3f(150, 0, 0);
     glVertex3f(0, 0, 0);
 
     // y - zelena
     glColor3f (0, 1, 0);
-    glVertex3f(0, 50, 0);
+    glVertex3f(0, 150, 0);
     glVertex3f(0, 0, 0);
     
     // z - plava
     glColor3f (0, 0, 1);
-    glVertex3f(0, 0, 50);
+    glVertex3f(0, 0, 150);
     glVertex3f(0, 0, 0);
     glEnd();
     glEnable(GL_LIGHTING);
