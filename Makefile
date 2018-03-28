@@ -4,12 +4,14 @@ CFLAGS  = -g -Wall -I/usr/X11R6/include -I/usr/pkg/include -I/usr/include/FTGL -
 LDFLAGS = -L/usr/X11R6/lib -L/usr/pkg/lib
 LDLIBS  = -lglfw -lglut -lGLU -lGL -lm -lftgl
 
-$(PROGRAM): main.o camera.o keyboard.o room.o texture.o image.o
+$(PROGRAM): main.o camera.o keyboard.o room.o texture.o image.o bookcase.o
 	$(CC) $(LDFLAGS) -o $(PROGRAM) $^ $(LDLIBS)
 	
 main.o: sources/main.c
 	$(CC) $(CFLAGS) -c sources/main.c $(LDLIBS)
-	
+
+bookcase.o: sources/bookcase.c headers/bookcase.h
+	$(CC) $(CFLAGS) -c sources/bookcase.c $(LDLIBS)
 
 room.o: sources/room.c headers/room.h
 	$(CC) $(CFLAGS) -c sources/room.c $(LDLIBS)
