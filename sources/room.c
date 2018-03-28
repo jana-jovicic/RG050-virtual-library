@@ -37,14 +37,14 @@ void drawRoom()
 
         glBindTexture(GL_TEXTURE_2D, textureNames[3]);
         
-	/* Prednji zid */       
+        /* Prednji zid */
 	GLfloat x = xRange;
 	GLfloat y = yRange;
 	GLfloat z = 0.0f;
         GLfloat dz = -zRange;
         drawXYQuad(x, y, z, dz, 1.0f);
 
-        /* Zadnji zid */
+	/* Zadnji zid */       
 	dz = zRange; 
         drawXYQuad(x, y, z, dz, -1.0f);
         
@@ -65,7 +65,7 @@ void drawRoom()
         
 	/* Plafon */
         glBindTexture(GL_TEXTURE_2D, textureNames[1]);
-	glColor4f(0.54f, 0.28f, 0.36f, gDiffuseMaterial[3]);
+	//glColor4f(0.54f, 0.28f, 0.4f, gDiffuseMaterial[3]);
         x = xRange;
         y = yRange;
         z = zRange;

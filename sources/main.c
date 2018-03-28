@@ -11,6 +11,7 @@
 #include "../headers/keyboard.h"
 #include "../headers/room.h"
 #include "../headers/texture.h"
+#include "../headers/bookcase.h"
 
 /*---------------------------- Globalne promenljive ----------------------------*/
 
@@ -147,6 +148,7 @@ void init()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_NORMALIZE);
 	glEnable(GL_LINE_SMOOTH);
+        glEnable(GL_COLOR_MATERIAL);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
         
@@ -270,6 +272,7 @@ void drawScene()
         
 	drawFloor();
 	drawRoom();
+        drawBookcases();
 
 	glFlush();
 	glutSwapBuffers();
