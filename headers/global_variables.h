@@ -17,7 +17,6 @@
 
 /* Pokazivaci na prozore */
 extern GLFWwindow* mainWindow;
-//extern GLFWwindow* directionWindow;
 
 /* Dimenzije prozora */
 extern GLint WIN_WIDTH;
