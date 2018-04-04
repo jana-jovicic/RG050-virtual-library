@@ -22,6 +22,9 @@ GLFWwindow* mainWindow = 0;
 GLint WIN_WIDTH;
 GLint WIN_HEIGHT;
 
+//Bookcase bookcases[MAX_BOOKCASES];
+//int numOfBookcases = 0;
+
 /* Kamera */
 GLfloat gCameraPosition[] = { 0.0f, yRange / 2, zRange - 2 };
 GLfloat gCameraLookAt[] = { 0.0f, yRange / 2, 0.0f };
@@ -123,7 +126,7 @@ int main(int argc, char ** argv) {
         glutInitWindowPosition(50, 50);
 	glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
 
-	glutCreateWindow("Library");
+	glutCreateWindow("Virtual library");
 	init();
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(drawScene);

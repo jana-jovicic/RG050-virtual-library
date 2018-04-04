@@ -19,6 +19,7 @@ void loadTextures()
 	createTexture(image, textureNames, FILENAME3, 3);
         createTexture(image, textureNames, FILENAME4, 4);
         createTexture(image, textureNames, FILENAME5, 5);
+        createTexture(image, textureNames, FILENAME6, 6);
         
 	glBindTexture(GL_TEXTURE_2D, 0);
 
