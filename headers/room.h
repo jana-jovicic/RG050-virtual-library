@@ -3,6 +3,7 @@
 
 void drawFloor();
 void drawRoom();
+void drawDoor();
 
 void drawXZQuad(GLfloat x, GLfloat y, GLfloat z, GLfloat normal);
 void drawYZQuad(GLfloat x, GLfloat y, GLfloat z, GLfloat dx, GLfloat normal);

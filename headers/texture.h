@@ -10,6 +10,7 @@
 #define FILENAME3 "textures/bookcase_background.bmp"
 #define FILENAME4 "textures/bookcase.bmp"
 #define FILENAME5 "textures/wood_3.bmp"
+#define FILENAME6 "textures/door.bmp"
 
 /* texture id */
 extern GLuint textureNames[NUMBER_OF_TEXTURES];
