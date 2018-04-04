@@ -37,14 +37,23 @@ void drawRoom()
 
         glBindTexture(GL_TEXTURE_2D, textureNames[3]);
         
-        /* Prednji zid */
+        /* Zadnji zid */
 	GLfloat x = xRange;
 	GLfloat y = yRange;
 	GLfloat z = 0.0f;
         GLfloat dz = -zRange;
         drawXYQuad(x, y, z, dz, 1.0f);
+        
+        glBindTexture(GL_TEXTURE_2D, 0);
+        
+        drawDoor();
 
-	/* Zadnji zid */       
+        glColor4f(gDiffuseMaterial[0], gDiffuseMaterial[1],
+		gDiffuseMaterial[2], gDiffuseMaterial[3]);
+        
+        glBindTexture(GL_TEXTURE_2D, textureNames[3]);
+        
+	/* Prednji zid */       
 	dz = zRange; 
         drawXYQuad(x, y, z, dz, -1.0f);
         
@@ -106,4 +115,36 @@ void drawXYQuad(GLfloat x, GLfloat y, GLfloat z, GLfloat dz, GLfloat normal)
             glTexCoord2f(x/150, 0); glVertex3f(x, 0, z + dz);
         glEnd();
 }
+
+void drawDoor()
+{
+    glBindTexture(GL_TEXTURE_2D, textureNames[6]);
+    
+    glPushMatrix();
+    glColor3f(0.17f, 0.12f, 0.0f);
+    
+    glTranslatef(-94, 0, zRange-1);
+    glScalef(61.5, 55.5, 50);
+    
+    glBegin(GL_QUADS);
+        glNormal3f(0, 0, 1);
+
+        glTexCoord2f(0, 0);
+        glVertex3f(1, 0, 0.01);
+
+        glTexCoord2f(1, 0);
+        glVertex3f(2.2, 0, 0.01);
+
+        glTexCoord2f(1, 1);
+        glVertex3f(2.2, 2.2, 0.01);
+
+        glTexCoord2f(0, 1);
+        glVertex3f(1, 2.2, 0.01);
+    glEnd();
+    
+    glPopMatrix();
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 
