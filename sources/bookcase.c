@@ -3,25 +3,30 @@
 #include "../headers/texture.h"
 
 Bookcase bookcases[MAX_BOOKCASES];
+Book books[NUM_OF_BOOKS];
 
 void drawBookcases()
 {
     /* Prave se 4 police za knjige i radni sto */
-    
+
     glBindTexture(GL_TEXTURE_2D, textureNames[4]);
     
+    // zadnja desna
     glPushMatrix();
         makeBookcase(-50, 85, 0);
     glPopMatrix();
 
+    // zadnja leva
     glPushMatrix();
         makeBookcase(-50, -85, 1);
     glPopMatrix();
     
+    // prednja desna
     glPushMatrix();
         makeBookcase(50, 85, 2);
     glPopMatrix();
 
+    // prednja leva
     glPushMatrix();
         makeBookcase(50, -85, 3);
     glPopMatrix();
@@ -100,4 +105,32 @@ void makeDesk(float z, float x)
         glScalef(20, 3, 60);
         glutSolidCube(1);
     glPopMatrix();
+    
+    /* Prave se knjige */
+    
+    /* Orwell, 1984 (postavlja se u niz books na nultu poziciju) */
+    glBindTexture(GL_TEXTURE_2D, textureNames[7]);
+    glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
+        
+    GLfloat x1984 = -110;
+    GLfloat z1984 = -90;
+    glPushMatrix();
+        glTranslatef(x1984, 42, z1984);
+        glScalef(10, 2, 8);
+        glutSolidCube(1);
+    glPopMatrix();
+    
+    glBegin(GL_QUADS);
+        glTexCoord2f((x1984+5)/20.35, (z1984+4)/20.35); glVertex3f(x1984-5, 43.2, z1984-4);
+        glTexCoord2f((x1984-5)/20.35, (z1984+4)/20.35); glVertex3f(x1984-5, 43.2, z1984+4);
+        glTexCoord2f((x1984-5)/20.35, (z1984-4)/20.35); glVertex3f(x1984+5, 43.2, z1984+4);
+        glTexCoord2f((x1984+5)/20.35, (z1984-4)/20.35); glVertex3f(x1984+5, 43.2, z1984-4);
+    glEnd();
+    
+    books[0].x = x1984;
+    books[0].z = z1984;
+    strcpy(books[0].title, "1984");
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
+    
 }
