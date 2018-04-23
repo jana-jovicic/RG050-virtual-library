@@ -12,11 +12,13 @@
 #include "../headers/room.h"
 #include "../headers/texture.h"
 #include "../headers/bookcase.h"
+#include "../headers/books.h"
 
 /*---------------------------- Globalne promenljive ----------------------------*/
 
 /* Pokazivaci na prozore */
 GLFWwindow* mainWindow = 0;
+GLFWwindow* bookWindow = 0;
 
 /* Dimenzije prozora */
 GLint WIN_WIDTH;
@@ -130,6 +132,7 @@ int main(int argc, char ** argv) {
 	init();
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(drawScene);
+       // glutMouseFunc(onMouse);
 	glutKeyboardFunc(keyboardFunc);
 	glutSpecialFunc(specialFunc);
 
