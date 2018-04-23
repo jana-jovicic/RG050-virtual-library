@@ -47,7 +47,7 @@ void drawRoom()
         glBindTexture(GL_TEXTURE_2D, 0);
         
         drawDoor();
-
+        
         glColor4f(gDiffuseMaterial[0], gDiffuseMaterial[1],
 		gDiffuseMaterial[2], gDiffuseMaterial[3]);
         
@@ -146,5 +146,3 @@ void drawDoor()
     
     glBindTexture(GL_TEXTURE_2D, 0);
 }
-
-
