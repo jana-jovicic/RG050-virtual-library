@@ -12,6 +12,8 @@
 #define FILENAME5 "textures/wood_3.bmp"
 #define FILENAME6 "textures/door.bmp"
 
+#define FILENAME7 "textures/1984.bmp"
+
 /* texture id */
 extern GLuint textureNames[NUMBER_OF_TEXTURES];
 
