@@ -24,9 +24,6 @@ GLFWwindow* bookWindow = 0;
 GLint WIN_WIDTH;
 GLint WIN_HEIGHT;
 
-//Bookcase bookcases[MAX_BOOKCASES];
-//int numOfBookcases = 0;
-
 /* Kamera */
 GLfloat gCameraPosition[] = { 0.0f, yRange / 2, zRange - 2 };
 GLfloat gCameraLookAt[] = { 0.0f, yRange / 2, 0.0f };
@@ -52,7 +49,7 @@ GLint gShininessMaterial = 50;
 /* Osvetljenje */
 GLfloat gGlobalAmbient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
 
-GLfloat gToplightAmbient[] = { 0.5, 0.5f, 0.5f, 1.0f };
+GLfloat gToplightAmbient[] = { 1.0, 1.0f, 1.0f, 1.0f };
 GLfloat gToplightDiffuse[] = { 1.0f, 0.92f, 0.54f, 1.0f };
 GLfloat gToplightSpecular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 GLfloat gToplightPosition[] = { 0.0f, yRange - 10.0f, 0.0f, 1.0f };
@@ -118,12 +115,6 @@ int main(int argc, char ** argv) {
         const GLFWvidmode *mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         WIN_WIDTH = mode->width;
         WIN_HEIGHT = mode->height;    
-//         mainWindow = glfwCreateWindow(WIN_WIDTH, WIN_HEIGHT, "Library", NULL, NULL);
-//         if (!mainWindow) {
-//             glfwTerminate();
-//             return EXIT_FAILURE;
-//         }
-
     
         glutInitWindowPosition(50, 50);
 	glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
@@ -132,7 +123,6 @@ int main(int argc, char ** argv) {
 	init();
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(drawScene);
-       // glutMouseFunc(onMouse);
 	glutKeyboardFunc(keyboardFunc);
 	glutSpecialFunc(specialFunc);
 

@@ -1,6 +1,7 @@
 /* kod sa casa, samo ubacen u funkcije */
 
 #include "../headers/texture.h"
+#include <stdio.h>
 
 GLuint textureNames[NUMBER_OF_TEXTURES];
 
@@ -21,6 +22,18 @@ void loadTextures()
         createTexture(image, textureNames, FILENAME5, 5);
         createTexture(image, textureNames, FILENAME6, 6);
         createTexture(image, textureNames, FILENAME7, 7);
+        createTexture(image, textureNames, FILENAME8, 8);
+        createTexture(image, textureNames, FILENAME9, 9);
+        createTexture(image, textureNames, FILENAME10, 10);
+        createTexture(image, textureNames, FILENAME11, 11);
+        createTexture(image, textureNames, FILENAME12, 12);
+        createTexture(image, textureNames, FILENAME13, 13);
+        createTexture(image, textureNames, FILENAME14, 14);
+        createTexture(image, textureNames, FILENAME15, 15);
+        createTexture(image, textureNames, FILENAME16, 16);
+        createTexture(image, textureNames, FILENAME17, 17);
+        createTexture(image, textureNames, FILENAME18, 18);
+       // createTexture(image, textureNames, FILENAME19, 19);
         
 	glBindTexture(GL_TEXTURE_2D, 0);
 

@@ -1,7 +1,7 @@
 #include "../headers/global_variables.h"
 #include "../headers/keyboard.h"
 #include "../headers/camera.h"
-#include "../headers/bookcase.h"
+//#include "../headers/books.h"
 
 extern GLFWwindow* bookWindow;
 
@@ -12,53 +12,81 @@ static void error_callback(int error, const char* description)
 
 void keyboardFunc(unsigned char key, GLint x, GLint y)
 {
+        int i;
 	switch (key)
 	{
-		case 'w':	gCameraPitch += gRotationSensitivity;
+		case 'w':
+                case 'W':       gCameraPitch += gRotationSensitivity;
 					break;
 
-		case 's':	gCameraPitch -= gRotationSensitivity;
+		case 's':	
+                case 'S':       gCameraPitch -= gRotationSensitivity;
 					break;
 
-		case 'a':	gCameraYaw -= gRotationSensitivity;
+		case 'a':	
+                case 'A':       gCameraYaw -= gRotationSensitivity;
 					break;
 
-		case 'd':	gCameraYaw += gRotationSensitivity;
+		case 'd':	
+                case 'D':       gCameraYaw += gRotationSensitivity;
 					break;
 
-		case 'r':	resetCamera();
+		case 'r':	
+                case 'R':       resetCamera();
 					break;
-                                        
-                case 'o':       if(gCameraPosition[0] > books[0].x+27 && gCameraPosition[0] < books[0].x+33
-                                    && gCameraPosition[2] > books[0].z-26 &&  gCameraPosition[2] < books[0].z+13){
-                                    // printf("!!!!!\n");
-                                        
-                                        glfwSetErrorCallback(error_callback);
-
-                                        if (!glfwInit()) {
-                                            exit(EXIT_FAILURE);
-                                        }
-                                        
-                                        bookWindow = glfwCreateWindow(WIN_WIDTH, WIN_HEIGHT, "George Orwell, 1984", NULL, NULL);
-                                        
-                                        if(!bookWindow){
-                                            glfwTerminate();
-                                            exit(EXIT_FAILURE);
-                                        }
-                                        
-                                        while(!glfwWindowShouldClose(bookWindow)){
-                                            displayBook(books[0].title);
-                                            glfwPollEvents();
-                                        }
-
-                                        glfwDestroyWindow(bookWindow);
-                                        glfwTerminate();
-                                }
                                 
+                case 'o':                        
+                case 'O':      
+                            for(i = 0; i < NUM_OF_BOOKS; i++){
+                                
+                         //        printf("------------------------------\n");
+                           //      printf("Book coord: x=%f y=%f z=%f  iter=%d\n", books[i].x, books[i].y, books[i].z, i);
+                             //    printf("Camera pos: x=%f y=%f z=%f\n", gCameraPosition[0], gCameraPosition[1], gCameraPosition[2]);
+                                    
+                                if(i == 0){
+                                    if(gCameraPosition[0] > books[i].x+27 && gCameraPosition[0] < books[i].x+33
+                                        && gCameraPosition[2] > books[i].z-26 &&  gCameraPosition[2] < books[i].z+13){
+                                        createNewWindow(books[i]);
+                                    }
+                                }
+                                else{
+                                    if(gCameraPosition[0] > books[i].x-5 && gCameraPosition[0] < books[i].x+25
+                                        && gCameraPosition[2] > books[i].z &&  gCameraPosition[2] < books[i].z+33
+                                        && gCameraPosition[1] > books[i].y-35 && gCameraPosition[1] < books[i].y+35){
+                                        createNewWindow(books[i]);
+                                    }
+                                }
                 
 
-	}
+                            }
+                            break;
+        }
 	updateCamera();
+}
+
+void createNewWindow(Book book)
+{    
+        glfwSetErrorCallback(error_callback);
+
+        if (!glfwInit()) {
+            exit(EXIT_FAILURE);
+        }
+        
+        bookWindow = glfwCreateWindow(WIN_WIDTH, WIN_HEIGHT, book.title, NULL, NULL);
+        
+        if(!bookWindow){
+            glfwTerminate();
+            exit(EXIT_FAILURE);
+        }
+        
+        while(!glfwWindowShouldClose(bookWindow)){
+            displayBook(book.title);
+            glfwPollEvents();
+        }
+
+        glfwDestroyWindow(bookWindow);
+        glfwTerminate();
+                                
 }
 
 void specialFunc(GLint key, GLint x, GLint y)
