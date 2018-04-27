@@ -1,5 +1,6 @@
 #include "../headers/global_variables.h"
 #include "../headers/bookcase.h"
+#include "../headers/books.h"
 #include "../headers/texture.h"
 
 Bookcase bookcases[MAX_BOOKCASES];
@@ -8,8 +9,6 @@ Book books[NUM_OF_BOOKS];
 void drawBookcases()
 {
     /* Prave se 4 police za knjige i radni sto */
-
-    glBindTexture(GL_TEXTURE_2D, textureNames[4]);
     
     // zadnja desna
     glPushMatrix();
@@ -31,19 +30,17 @@ void drawBookcases()
         makeBookcase(50, -85, 3);
     glPopMatrix();
 
-    glBindTexture(GL_TEXTURE_2D, 0);
-    
-    glBindTexture(GL_TEXTURE_2D, textureNames[5]);
-    
     glPushMatrix();
         makeDesk(-105, -120);
     glPopMatrix();
     
-    glBindTexture(GL_TEXTURE_2D, 0);
+    placeBooks();
 }
 
 void makeBookcase(float z, float x, int num)
 {
+    glBindTexture(GL_TEXTURE_2D, textureNames[4]);
+    
     bookcases[num].z = z;
     bookcases[num].x = x;
     
@@ -80,10 +77,14 @@ void makeBookcase(float z, float x, int num)
         glScalef(120, 2, 20);
         glutSolidCube(1);
     glPopMatrix();
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void makeDesk(float z, float x)
 {
+    glBindTexture(GL_TEXTURE_2D, textureNames[5]);
+    
     /* radna ploca */
     glPushMatrix();
         glTranslatef(x, 40, z);
@@ -106,31 +107,25 @@ void makeDesk(float z, float x)
         glutSolidCube(1);
     glPopMatrix();
     
-    /* Prave se knjige */
-    
-    /* Orwell, 1984 (postavlja se u niz books na nultu poziciju) */
-    glBindTexture(GL_TEXTURE_2D, textureNames[7]);
-    glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
-        
-    GLfloat x1984 = -110;
-    GLfloat z1984 = -90;
-    glPushMatrix();
-        glTranslatef(x1984, 42, z1984);
-        glScalef(10, 2, 8);
-        glutSolidCube(1);
-    glPopMatrix();
-    
-    glBegin(GL_QUADS);
-        glTexCoord2f((x1984+5)/20.35, (z1984+4)/20.35); glVertex3f(x1984-5, 43.2, z1984-4);
-        glTexCoord2f((x1984-5)/20.35, (z1984+4)/20.35); glVertex3f(x1984-5, 43.2, z1984+4);
-        glTexCoord2f((x1984-5)/20.35, (z1984-4)/20.35); glVertex3f(x1984+5, 43.2, z1984+4);
-        glTexCoord2f((x1984+5)/20.35, (z1984-4)/20.35); glVertex3f(x1984+5, 43.2, z1984-4);
-    glEnd();
-    
-    books[0].x = x1984;
-    books[0].z = z1984;
-    strcpy(books[0].title, "1984");
-    
     glBindTexture(GL_TEXTURE_2D, 0);
     
+    /* Prave se knjige */
+  
+    /* Orwell, 1984 (postavlja se u niz books na nultu poziciju) */
+    
+    glBindTexture(GL_TEXTURE_2D, textureNames[7]);
+    glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
+    
+    glPushMatrix();
+        glTranslatef(-65, 135, -185);
+        glRotatef(270, 1, 0, 0);
+        glRotatef(-270, 0, 0, 1);
+        books[0].x = -110;
+        books[0].z = -90;
+        books[0].y = 42;
+        strcpy(books[0].title, "1984");
+        makeReadableBook(books[0], textureNames[7]);
+    glPopMatrix();
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
