@@ -93,7 +93,7 @@ void reshape(GLint, GLint);
 void drawScene();
 
 static void error_callback(int error, const char* description);
-static void draw_debug_coordsys();
+//static void draw_debug_coordsys();
 
 /*------------------------------------------------------------------------------*/
 
@@ -264,7 +264,7 @@ void drawScene()
 	glBlendFunc(GL_ONE, GL_ONE);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        draw_debug_coordsys();
+      //  draw_debug_coordsys();
         
 	drawFloor();
 	drawRoom();
@@ -274,6 +274,7 @@ void drawScene()
 	glutSwapBuffers();
 }
 
+/*
 static void draw_debug_coordsys()
 {
     glDisable(GL_LIGHTING);
@@ -295,6 +296,7 @@ static void draw_debug_coordsys()
     glEnd();
     glEnable(GL_LIGHTING);
 }
+*/
 
 static void error_callback(int error, const char* description)
 {

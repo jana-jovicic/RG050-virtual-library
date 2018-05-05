@@ -33,7 +33,28 @@ void loadTextures()
         createTexture(image, textureNames, FILENAME16, 16);
         createTexture(image, textureNames, FILENAME17, 17);
         createTexture(image, textureNames, FILENAME18, 18);
-       // createTexture(image, textureNames, FILENAME19, 19);
+        createTexture(image, textureNames, FILENAME19, 19);
+        createTexture(image, textureNames, FILENAME20, 20);
+        createTexture(image, textureNames, FILENAME21, 21);
+        createTexture(image, textureNames, FILENAME22, 22);
+        createTexture(image, textureNames, FILENAME23, 23);
+        createTexture(image, textureNames, FILENAME24, 24);
+        createTexture(image, textureNames, FILENAME25, 25);
+        createTexture(image, textureNames, FILENAME26, 26);
+        createTexture(image, textureNames, FILENAME27, 27);
+        createTexture(image, textureNames, FILENAME28, 28);
+        createTexture(image, textureNames, FILENAME29, 29);
+        createTexture(image, textureNames, FILENAME30, 30);
+        createTexture(image, textureNames, FILENAME31, 31);
+        createTexture(image, textureNames, FILENAME32, 32);
+        createTexture(image, textureNames, FILENAME33, 33);
+        createTexture(image, textureNames, FILENAME34, 34);
+        createTexture(image, textureNames, FILENAME35, 35);
+        createTexture(image, textureNames, FILENAME36, 36);
+        createTexture(image, textureNames, FILENAME37, 37);
+        createTexture(image, textureNames, FILENAME38, 38);
+        createTexture(image, textureNames, FILENAME39, 39);
+        createTexture(image, textureNames, FILENAME40, 40);
         
 	glBindTexture(GL_TEXTURE_2D, 0);
 

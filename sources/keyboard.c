@@ -1,7 +1,6 @@
 #include "../headers/global_variables.h"
 #include "../headers/keyboard.h"
 #include "../headers/camera.h"
-//#include "../headers/books.h"
 
 extern GLFWwindow* bookWindow;
 
@@ -38,12 +37,13 @@ void keyboardFunc(unsigned char key, GLint x, GLint y)
                 case 'o':                        
                 case 'O':      
                             for(i = 0; i < NUM_OF_BOOKS; i++){
-                                
-                         //        printf("------------------------------\n");
-                           //      printf("Book coord: x=%f y=%f z=%f  iter=%d\n", books[i].x, books[i].y, books[i].z, i);
-                             //    printf("Camera pos: x=%f y=%f z=%f\n", gCameraPosition[0], gCameraPosition[1], gCameraPosition[2]);
-                                    
+                              /*  
+                                printf("------------------------------\n");
+                                printf("Book coord: x=%f y=%f z=%f  %s\n", books[i].x, books[i].y, books[i].z, books[i].title);
+                                printf("Camera pos: x=%f y=%f z=%f\n", gCameraPosition[0], gCameraPosition[1], gCameraPosition[2]);
+                                */    
                                 if(i == 0){
+                                    /* books[0] razmatram posebno zbog toga sto se nalazi na stolu */
                                     if(gCameraPosition[0] > books[i].x+27 && gCameraPosition[0] < books[i].x+33
                                         && gCameraPosition[2] > books[i].z-26 &&  gCameraPosition[2] < books[i].z+13){
                                         createNewWindow(books[i]);
