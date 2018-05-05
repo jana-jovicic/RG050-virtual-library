@@ -1,7 +1,7 @@
 #ifndef _BOOKs_H_
 #define _BOOKs_H_
 
-#define NUM_OF_BOOKS 3
+#define NUM_OF_BOOKS 11
 
 typedef struct{
     float x;

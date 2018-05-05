@@ -9,7 +9,6 @@
 
 #define GL_BGR         0x80E0
 #define DEG2RAD(a)    (M_PI / 180 * (a))
-// #define MAX_BOOKCASES 5
 
 /* Dimenzije prostorije */
 #define xRange (150.0f)
