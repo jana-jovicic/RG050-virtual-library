@@ -29,12 +29,13 @@ void drawBookcases()
     glPushMatrix();
         makeBookcase(50, -85, 3);
     glPopMatrix();
-
+    
+    // sto
     glPushMatrix();
         makeDesk(-105, -120);
     glPopMatrix();
-    
-    placeBooks();
+
+    placeBooks();    
 }
 
 void makeBookcase(float z, float x, int num)
