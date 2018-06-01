@@ -11,6 +11,11 @@ static void error_callback(int error, const char* description)
 
 void keyboardFunc(unsigned char key, GLint x, GLint y)
 {
+        /* Ovom funkcijom se realizuje:
+           - rotacija kamere pomocu tastera 'w', 's', 'a', 'd'
+           - otvaranje knjige pomocu tastera 'o'  
+        */
+    
         int i;
 	switch (key)
 	{
@@ -35,7 +40,9 @@ void keyboardFunc(unsigned char key, GLint x, GLint y)
 					break;
                                 
                 case 'o':                        
-                case 'O':      
+                case 'O':   
+                            /* Kada korisnik pritisne taster 'o', proveravam da li se on nalazi u blizini neke od knjiga. 
+                             * Ukoliko se nalazi, kreira se novi prozor u kome ce biti ispisan tekst iz te knjige. */
                             for(i = 0; i < NUM_OF_BOOKS; i++){
                               /*  
                                 printf("------------------------------\n");
@@ -65,7 +72,10 @@ void keyboardFunc(unsigned char key, GLint x, GLint y)
 }
 
 void createNewWindow(Book book)
-{    
+{ 
+        /* Ovom funkcijom se kreira novi prozor, u event petlji se poziva funkcija displayBook kojom ce 
+           biti ispisan tekst iz knjige ciji se naslov prosledjuje kao argument, i na kraju se zatvara taj prozor. */
+    
         glfwSetErrorCallback(error_callback);
 
         if (!glfwInit()) {
@@ -91,6 +101,8 @@ void createNewWindow(Book book)
 
 void specialFunc(GLint key, GLint x, GLint y)
 {
+        /* Ovom funkcijom je realizovano kretanje po prostoriji pomocu strelica */
+    
 	switch (key)
 	{
 	case GLUT_KEY_UP: gMoveForward += gMovementSensitivity;

@@ -6,6 +6,8 @@
 
 void displayBook(char *title)
 {    
+    /* Funkcija kojom se aktivira kontekst prozora u kom ce funkcijom openBook biti ispisan odlomak iz odgovarajuce knjige. */
+    
     int width, height;
 
     glfwMakeContextCurrent(bookWindow);
@@ -44,6 +46,7 @@ void displayBook(char *title)
 
 void openBook(char *titlePath)
 {
+    /* Funkcija kojom se ucitava tekst iz datoteke i ispisuje u novokreirani prozor */
     
     /* Kreiranje fonta je uradjeno na osnovu tutorijala:
        http://ftgl.sourceforge.net/docs/html/ftgl-tutorial.html
@@ -74,6 +77,8 @@ void openBook(char *titlePath)
     
     glRasterPos2f(fontX, fontY);
     
+    /* Posto se novi red prepoznaje kao obican karakter, onda sam ucitavala liniju po liniju, 
+     * i nakon svake spustala y koordinatu na kojoj ce ta linija biti ispisana. */
     while((read = getline(&line, &len, f)) != -1)
     {
         ftglRenderFont(font, line, FTGL_RENDER_ALL);
@@ -85,6 +90,10 @@ void openBook(char *titlePath)
 }
 
 void makeBooks(float x, float y, float z, float scaleX, float scaleY, float scaleZ, GLuint textureName){
+    
+    /* Funkcija pravi knjige koje ne mogu da se otvaraju. 
+       Knjige se prave tako sto se prosledjena tekstura postavi na kvadrat
+       koji se translira na prosledjenu poziciju i skalira na prosledjenu velicinu. */
     
     glBindTexture(GL_TEXTURE_2D, textureName);
     glColor4f( 0.5f, 0.5f, 0.5f, 1.0f );
@@ -114,6 +123,8 @@ void makeBooks(float x, float y, float z, float scaleX, float scaleY, float scal
 }
 
 void makeReadableBook(Book b, GLuint textureName){
+    
+    /* Funkcija pravi knjige ciji sadrzaj moze da se prikaze pritiskom na taster 'o'. */
     
     float x = b.x;
     float y = b.y;
@@ -155,6 +166,8 @@ void makeReadableBook(Book b, GLuint textureName){
 
 void placeBooks()
 {    
+    /* Funkcija kojom se postavljaju knjige na police */
+    
     /* Knjige u prednjoj desnoj polici */
     
     glPushMatrix();
