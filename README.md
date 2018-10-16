@@ -1,5 +1,6 @@
 # RG050-virtual-library
 
+Virtual library je projekat rađen u okviru kursa Računarska grafika, na Matematičkom fakultetu.
 
 ### Preduslovi:
 Pored GLUT potrebne su i GLFW i FTGL biblioteke.
